@@ -1,0 +1,25 @@
+<section class="listings">
+    <div class="container">
+      <h2>Our Listings</h2>
+      <div class="filters">
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterListings()" placeholder="Search listings...">
+      </div>
+      <div class="listing-grid">
+        <div class="listing-card" *ngFor="let listing of paginatedListings" @fadeIn>
+          <img [src]="listing.image" [alt]="listing.title">
+          <div class="listing-info">
+            <h3>{{ listing.title }}</h3>
+            <p>{{ listing.location }}</p>
+            <p class="price">{{ listing.price | currency:'USD' }}</p>
+            <a routerLink="/ilandetay/{{ listing.id }}" class="btn">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <button [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1">Previous</button>
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+        <button [disabled]="currentPage === totalPages" (click)="currentPage = currentPage + 1">Next</button>
+      </div>
+    </div>
+  </section>
+  
