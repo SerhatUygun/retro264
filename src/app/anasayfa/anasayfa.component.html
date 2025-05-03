@@ -1,47 +1,47 @@
 <section class="hero">
-    <div class="hero-content">
-      <h1>Find Your Dream Home with Retro264</h1>
-      <div class="search-bar">
-        <input type="text" placeholder="Search by location...">
-        <button class="btn">Search</button>
-      </div>
+  <div class="hero-content">
+    <h1>Retro264 ile Hayalindeki Evi Bul - Güncellendi!</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="Search by location...">
+      <button class="btn">Search</button>
     </div>
-  </section>
-  <section class="featured">
-    <div class="container">
-      <h2>Featured Listings</h2>
-      <div class="listing-grid">
-        <div class="listing-card" *ngFor="let listing of listings" @fadeIn>
-          <img [src]="listing.image" [alt]="listing.title">
-          <div class="listing-info">
-            <h3>{{ listing.title }}</h3>
-            <p>{{ listing.location }}</p>
-            <p class="price">{{ listing.price | currency:'USD' }}</p>
-            <a routerLink="/ilandetay/{{ listing.id }}" class="btn">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="why-choose-us">
-    <div class="container">
-      <h2>Why Choose Us</h2>
-      <div class="features">
-        <div class="feature">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Trusted Expertise</h3>
-          <p>20+ years in luxury real estate.</p>
-        </div>
-        <div class="feature">
-          <i class="fas fa-home"></i>
-          <h3>Premium Properties</h3>
-          <p>Exclusive listings for elite clients.</p>
-        </div>
-        <div class="feature">
-          <i class="fas fa-concierge-bell"></i>
-          <h3>Personalized Service</h3>
-          <p>Dedicated consultants for your needs.</p>
+  </div>
+</section>
+<section class="featured">
+  <div class="container">
+    <h2>Featured Listings</h2>
+    <div class="listing-grid">
+      <div class="listing-card" *ngFor="let listing of listings" @fadeIn>
+        <img [src]="listing.image" [alt]="listing.title">
+        <div class="listing-info">
+          <h3>{{ listing.title }}</h3>
+          <p>{{ listing.location }}</p>
+          <p class="price">{{ listing.price | currency:'USD' }}</p>
+          <a routerLink="/ilandetay/{{ listing.id }}" class="btn">View Details</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<section class="why-choose-us">
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Trusted Expertise</h3>
+        <p>20+ years in luxury real estate.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-home"></i>
+        <h3>Premium Properties</h3>
+        <p>Exclusive listings for elite clients.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-concierge-bell"></i>
+        <h3>Personalized Service</h3>
+        <p>Dedicated consultants for your needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
