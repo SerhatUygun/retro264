@@ -1,34 +1,46 @@
 <section class="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <div class="contact-content">
-        <div class="contact-form">
-          <h3>Send a Message</h3>
-          <form (ngSubmit)="submitForm()">
-            <input type="text" [(ngModel)]="contact.name" name="name" placeholder="Your Name" required>
-            <input type="email" [(ngModel)]="contact.email" name="email" placeholder="Your Email" required>
-            <textarea [(ngModel)]="contact.message" name="message" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send</button>
-          </form>
+  <div class="container">
+    <h2 class="section-title">Bize Ulaşın</h2>
+    <div class="contact-content">
+      <div class="contact-form">
+        <h3>Mesaj Gönder</h3>
+        <div class="success-message" *ngIf="isSubmitted">
+          Mesajınız başarıyla gönderildi! En kısa sürede sizinle iletişime geçeceğiz.
         </div>
-        <div class="contact-info">
-          <h3>Contact Information</h3>
-          <p><i class="fas fa-phone"></i> +90 212 555 1234</p>
-          <p><i class="fas fa-envelope"></i> info_retro264.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</p>
-          <div class="map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81627927975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzU4LjYiUyAxNDTCsDU3JzEzLjUiRQ!5e0!3m2!1sen!2sau!4v1611812312345!5m2!1sen!2sau"
-              width="100%"
-              height="300"
-              frameborder="0"
-              style="border:0;"
-              allowfullscreen=""
-              aria-hidden="false"
-              tabindex="0">
-            </iframe>
+        <form (ngSubmit)="submitForm()">
+          <div class="form-group">
+            <input type="text" [(ngModel)]="contact.name" name="name" placeholder="Adınız" required>
+            <span class="error" *ngIf="formErrors.name">{{ formErrors.name }}</span>
           </div>
+          <div class="form-group">
+            <input type="email" [(ngModel)]="contact.email" name="email" placeholder="E-posta Adresiniz" required>
+            <span class="error" *ngIf="formErrors.email">{{ formErrors.email }}</span>
+          </div>
+          <div class="form-group">
+            <textarea [(ngModel)]="contact.message" name="message" placeholder="Mesajınız" required></textarea>
+            <span class="error" *ngIf="formErrors.message">{{ formErrors.message }}</span>
+          </div>
+          <button type="submit" class="btn">Gönder</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h3>İletişim Bilgileri</h3>
+        <p><i class="fas fa-phone"></i> +90 212 555 1234</p>
+        <p><i class="fas fa-envelope"></i> info_retro264.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</p>
+        <div class="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81627927975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzU4LjYiUyAxNDTCsDU3JzEzLjUiRQ!5e0!3m2!1sen!2sau!4v1611812312345!5m2!1sen!2sau"
+            width="100%"
+            height="300"
+            frameborder="0"
+            style="border:0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0">
+          </iframe>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>

@@ -1,25 +1,38 @@
 <section class="listings">
-    <div class="container">
-      <h2>Our Listings</h2>
-      <div class="filters">
-        <input type="text" [(ngModel)]="searchTerm" (input)="filterListings()" placeholder="Search listings...">
+  <div class="container">
+    <h2 class="section-title">İlanlarımız</h2>
+    <div class="filters">
+      <div class="filter-group">
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterListings()" placeholder="Konum veya mülk adına göre ara...">
       </div>
-      <div class="listing-grid">
-        <div class="listing-card" *ngFor="let listing of paginatedListings" @fadeIn>
-          <img [src]="listing.image" [alt]="listing.title">
-          <div class="listing-info">
-            <h3>{{ listing.title }}</h3>
-            <p>{{ listing.location }}</p>
-            <p class="price">{{ listing.price | currency:'USD' }}</p>
-            <a routerLink="/ilandetay/{{ listing.id }}" class="btn">View Details</a>
-          </div>
-        </div>
+      <div class="filter-group">
+        <input type="number" [(ngModel)]="minPrice" (input)="filterListings()" placeholder="Min Fiyat">
+        <input type="number" [(ngModel)]="maxPrice" (input)="filterListings()" placeholder="Max Fiyat">
       </div>
-      <div class="pagination">
-        <button [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1">Previous</button>
-        <span>Page {{ currentPage }} of {{ totalPages }}</span>
-        <button [disabled]="currentPage === totalPages" (click)="currentPage = currentPage + 1">Next</button>
+      <div class="filter-group">
+        <input type="number" [(ngModel)]="minBedrooms" (input)="filterListings()" placeholder="Min Yatak Odası">
       </div>
     </div>
-  </section>
-  
+    <div class="listing-grid">
+      <div class="listing-card" *ngFor="let listing of paginatedListings" @slideIn>
+        <img [src]="listing.image" [alt]="listing.title">
+        <div class="listing-info">
+          <h3>{{ listing.title }}</h3>
+          <p>{{ listing.location }}</p>
+          <div class="listing-details">
+            <span><i class="fas fa-bed"></i> {{ listing.bedrooms }} Yatak</span>
+            <span><i class="fas fa-bath"></i> {{ listing.bathrooms }} Banyo</span>
+            <span><i class="fas fa-ruler-combined"></i> {{ listing.area }} m²</span>
+          </div>
+          <p class="price">{{ listing.price | currency:'USD' }}</p>
+          <a routerLink="/ilandetay/{{ listing.id }}" class="btn">Detayları Gör</a>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <button [disabled]="currentPage === 1" (click)="currentPage = currentPage - 1">Önceki</button>
+      <span>Sayfa {{ currentPage }} / {{ totalPages }}</span>
+      <button [disabled]="currentPage === totalPages" (click)="currentPage = currentPage + 1">Sonraki</button>
+    </div>
+  </div>
+</section>
