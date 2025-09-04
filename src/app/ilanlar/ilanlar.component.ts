@@ -12,10 +12,10 @@ import { animate, style, transition, trigger } from '@angular/animations';
   templateUrl: './ilanlar.component.html',
   styleUrls: ['./ilanlar.component.scss'],
   animations: [
-    trigger('fadeIn', [
+    trigger('slideIn', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate('300ms ease-in', style({ opacity: 1 }))
+        style({ opacity: 0, transform: 'translateX(-20px)' }),
+        animate('400ms ease-in', style({ opacity: 1, transform: 'translateX(0)' }))
       ])
     ])
   ]
@@ -28,13 +28,19 @@ export class IlanlarComponent {
 
   filteredListings = [...this.listings];
   searchTerm = '';
+  minPrice = 0;
+  maxPrice = Infinity;
+  minBedrooms = 0;
   currentPage = 1;
   itemsPerPage = 6;
 
   filterListings() {
     this.filteredListings = this.listings.filter(listing =>
-      listing.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-      listing.location.toLowerCase().includes(this.searchTerm.toLowerCase())
+      (listing.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+       listing.location.toLowerCase().includes(this.searchTerm.toLowerCase())) &&
+      listing.price >= this.minPrice &&
+      (this.maxPrice === Infinity || listing.price <= this.maxPrice) &&
+      listing.bedrooms >= this.minBedrooms
     );
     this.currentPage = 1;
   }

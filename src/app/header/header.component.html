@@ -1,18 +1,18 @@
 <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a routerLink="/" class="logo">
-          <img src="/assets/images/logo.png" alt="Retro264 Logo">
-        </a>
-        <nav [ngClass]="{'open': isMenuOpen}">
-          <a routerLink="/" (click)="toggleMenu()">Ana Sayfa</a>
-          <a routerLink="/hakkinda" (click)="toggleMenu()">Hakkında</a>
-          <a routerLink="/ilanlar" (click)="toggleMenu()">İlanlar</a>
-          <a routerLink="/iletisim" (click)="toggleMenu()">İletişim</a>
-        </nav>
-        <button class="hamburger" (click)="toggleMenu()">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+  <div class="container">
+    <div class="header-content">
+      <a routerLink="/" class="logo">
+        <img src="/assets/images/logo.png" alt="Retro264 Logo">
+      </a>
+      <nav [ngClass]="{'open': isMenuOpen}">
+        <a routerLink="/" (click)="toggleMenu()" @slideIn>Ana Sayfa</a>
+        <a routerLink="/hakkinda" (click)="toggleMenu()" @slideIn>Hakkında</a>
+        <a routerLink="/ilanlar" (click)="toggleMenu()" @slideIn>İlanlar</a>
+        <a routerLink="/iletisim" (click)="toggleMenu()" @slideIn>İletişim</a>
+      </nav>
+      <button class="hamburger" (click)="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
